@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#100b2b">
+  <meta name="description" content="A 30-second rainbow party show.">
+  <title>Pirozhkov Show 🎉</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">PS</span><span>PIROZHKOV <b>SHOW</b></span></div>
+      <span class="duration">30 SEC PARTY</span>
+    </header>
+
+    <section class="intro" id="intro">
+      <div class="eyebrow">YOUR PERSONAL MINI-CONCERT</div>
+      <h1>Ready to<br><span>dance?</span> ✨</h1>
+      <p>A tiny 30-second burst of color, photos and pure chaos.</p>
+
+      <div class="uploads">
+        <label class="upload-card" for="photoInput">
+          <span class="upload-icon">📸</span>
+          <span class="upload-title">Add photos</span>
+          <small id="photoLabel">Choose pictures from your device</small>
+          <input id="photoInput" type="file" accept="image/*" multiple>
+        </label>
+        <label class="upload-card" for="audioInput">
+          <span class="upload-icon">🎵</span>
+          <span class="upload-title">Add music</span>
+          <small id="audioLabel">Optional · choose an audio file</small>
+          <input id="audioInput" type="file" accept="audio/*">
+        </label>
+      </div>
+      <button class="start-button" id="startButton">START THE SHOW <span>→</span></button>
+      <p class="privacy">Your photos and audio stay on this device.</p>
+    </section>
+
+    <section class="stage hidden" id="stage" aria-label="Animated party stage">
+      <div class="stage-glow"></div>
+      <div class="ticker">PIROZHKOV MODE: ON ✦ PIROZHKOV MODE: ON ✦</div>
+      <div class="photo-area" id="photoArea">
+        <div class="fallback-portrait" id="fallbackPortrait">
+          <div class="sunglasses">😎</div>
+          <div class="fallback-name">THE<br>SHOWMAN</div>
+          <div class="fallback-sub">SPECIAL GUEST</div>
+        </div>
+      </div>
+      <div class="caption-pop" id="captionPop">THE PARTY HAS ARRIVED!</div>
+      <div class="sticker sticker-one">💃</div>
+      <div class="sticker sticker-two">🪩</div>
+      <div class="sticker sticker-three">✨</div>
+      <div class="sticker sticker-four">🕺</div>
+      <div class="equalizer" id="equalizer" aria-hidden="true"></div>
+      <div class="stage-bottom">
+        <div class="time-row"><span id="timeLabel">00:00</span><span>00:30</span></div>
+        <div class="progress"><span id="progressFill"></span></div>
+        <div class="controls">
+          <button id="pauseButton" class="control-button">Ⅱ PAUSE</button>
+          <button id="stopButton" class="control-button stop">■ STOP</button>
+        </div>
+      </div>
+    </section>
+    <footer>MADE FOR A GOOD MOOD <span>✦</span> NO SERIOUSNESS ALLOWED</footer>
+  </main>
+  <audio id="audioPlayer" preload="auto"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
