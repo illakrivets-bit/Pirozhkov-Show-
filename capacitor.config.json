@@ -1,0 +1,9 @@
+{
+  "appId": "ru.pirozhkov.arturshow",
+  "appName": "ARTUR.APK",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": false
+  }
+}
