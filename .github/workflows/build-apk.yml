@@ -32,6 +32,14 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      - name: Install image tools
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Download approved tuxedo portrait
+        run: |
+          curl -L --fail --retry 3 "https://celebbio.org/wp-content/uploads/2022/12/pirozhkov-atrur-foto-07.jpg" -o www/artur-avatar.jpg
+          magick www/artur-avatar.jpg -auto-orient -gravity center -crop 1:1 +repage -resize 512x512^ -gravity center -extent 512x512 www/icon-512.png
+
       - name: Install dependencies
         run: npm install
 
@@ -40,6 +48,16 @@ jobs:
 
       - name: Sync web app
         run: npx cap sync android
+
+      - name: Create Android launcher icons
+        run: |
+          for spec in "mdpi:48" "hdpi:72" "xhdpi:96" "xxhdpi:144" "xxxhdpi:192"; do
+            density="${spec%%:*}"
+            size="${spec##*:}"
+            mkdir -p "android/app/src/main/res/mipmap-${density}"
+            magick www/artur-avatar.jpg -auto-orient -gravity center -crop 1:1 +repage -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" "android/app/src/main/res/mipmap-${density}/ic_launcher.png"
+            cp "android/app/src/main/res/mipmap-${density}/ic_launcher.png" "android/app/src/main/res/mipmap-${density}/ic_launcher_round.png"
+          done
 
       - name: Build debug APK
         working-directory: android
