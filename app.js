@@ -59,6 +59,7 @@
   });
 
   function showPhoto() {
+    if (!running || paused) return;
     if (!photoUrls.length) {
       fallback.classList.remove('hidden');
       return;
