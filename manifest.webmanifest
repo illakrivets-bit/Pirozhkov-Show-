@@ -1,0 +1,14 @@
+{
+  "name": "Pirozhkov Show",
+  "short_name": "Pirozhkov",
+  "description": "A colorful 30-second party show",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#100b2b",
+  "theme_color": "#100b2b",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
